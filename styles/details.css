@@ -59,7 +59,7 @@ section {
   letter-spacing: 3px;
 }
 
-section:after {
+/*section:after {
     content:'';
     position: absolute;
     top: 100%;
@@ -71,7 +71,7 @@ section:after {
     border-top: solid 20px #312f33;
     border-left: solid 30px transparent;
     border-right: solid 30px transparent;
-}
+}*/
 
 section h1 {
   margin: 9% auto 0% auto;
@@ -83,9 +83,10 @@ section h1 {
   line-height: 6rem;
 }
 
+
 #subtitle {
   margin-top: 0rem;
-  margin-bottom: 7%;
+  margin-bottom: 6%;
   color: white;
   font-weight: 500;
   font-size: 1.5rem;
@@ -105,8 +106,10 @@ section h1 {
 
 .mainContentDiv {
   padding: 1.5rem;
-  margin: 1rem auto;
+  margin: 1rem auto 0 auto;
   width: 40%;
+  background-color: rgba(54, 36, 78, .03);
+  border-radius: 5px;
 }
 
 .mainContentDiv h1 {
@@ -188,10 +191,14 @@ a.currentPage:hover {
   color: #BDA9DA;
 }
 
+#mobileNav {
+  display: none;
+}
+
 /*~~~~Responsive Width 900px and below~~~~*/
 @media screen and (max-width: 900px) {
   section h1 {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   #subtitle{
@@ -208,14 +215,20 @@ a.currentPage:hover {
 
   .left {
     margin-top: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 1rem;
   }
   .right {
-    margin-top: -3rem;
+    margin-bottom: 4rem;
   }
 
   .right button {
     margin: 1rem;
     width:100%;
+  }
+
+  #break {
+    display: none;
   }
 
   #desktopNav{

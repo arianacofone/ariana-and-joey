@@ -57,12 +57,12 @@ section {
 }
 
 section h1 {
-  margin: 9% auto 9% auto;
+  margin: 9% auto 7% auto;
   letter-spacing: 6px;
   font-family: 'Homemade Apple', cursive;
   letter-spacing: -.125rem;
   font-size: 5rem;
-  color: black;
+  color: white;
   line-height: 6rem;
 }
 
@@ -171,6 +171,10 @@ a.currentPage:hover {
 
 #currentPage {
   color: #BDA9DA;
+}
+
+#mobileNav {
+  display: none;
 }
 
 /*~~~~Responsive Width 900px and below~~~~*/
