@@ -1,7 +1,9 @@
 html, body {
   font-family: 'Zilla Slab', serif;
-  background-color: rgb(54, 36, 78);
-  color: #F6F7FC;
+  /*background-color: #1E043A;*/
+  background-color: white;
+  /*color: #F6F7FC;*/
+  color: #614E7B;
   margin: 0;
 }
 
@@ -10,32 +12,18 @@ a {
   color: inherit;
 }
 
-header h1{
-  margin: 1rem auto;
-  background-color: rgba(54, 36, 78, 0.8);
-  width: 9rem;
-  text-align: center;
-  border: 3px solid #BDA9DA;
-  font-size: 1.1rem;
-  border-radius: 5px;
-  padding: .4rem;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-header h1:hover {
-  background-color: #BDA9DA;
-  color: rgb(54, 36, 78);
-  border: 3px solid rgb(54, 36, 78);
-  font-weight: 700;
-}
+/*~~~~~~~~~~~~Subtitle styling~~~~~~~~~~~~~~~*/
 
 section {
   background-color: #614E7B;
+  background-image: url('../option3.jpg');
+  background-size: cover;
+  background-position: top;
   padding: .5rem;
   text-align: center;
   position: relative;
-
+  height: 70%;
+  letter-spacing: 3px;
 }
 
 section:after {
@@ -47,26 +35,117 @@ section:after {
     margin: 0 auto;
     width: 0;
     height: 0;
-    border-top: solid 20px #614E7B;
+    border-top: solid 20px #312f33;
     border-left: solid 30px transparent;
     border-right: solid 30px transparent;
 }
 
-section p {
-  text-transform: uppercase;
+section h1 {
+  margin: 9% auto 0% auto;
+  letter-spacing: 6px;
+  font-family: 'Homemade Apple', cursive;
+  letter-spacing: -.125rem;
+  font-size: 5rem;
+  color: white;
+  line-height: 6rem;
 }
+
+#subtitle {
+  margin-top: 0rem;
+  margin-bottom: 7%;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/*~~~~~~~~~~~~Header styling~~~~~~~~~~~~~~~*/
+
+header h1{
+  font-family: 'Zilla Slab', serif;
+  margin: 1rem auto;
+  background-color: rgba(54, 36, 78, 0.8);
+  width: 9rem;
+  text-align: center;
+  border: 3px solid #BDA9DA;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  padding: .4rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: white;
+  line-height: 1.75rem;
+}
+
+header h1:hover {
+  background-color: #BDA9DA;
+  color: rgb(54, 36, 78);
+  border: 3px solid rgb(54, 36, 78);
+  font-weight: 700;
+}
+
+/*~~~~~~~~~~~~Details styling~~~~~~~~~~~~~~~*/
 
 #mainContent {
   padding: 2rem;
-  flex-direction: row;
   flex-grow: 2;
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  justify-content: space-between;
+
 }
 
 .mainContentDetails {
-  flex-direction: row;
-  /*justify-content: space-between;*/
+  padding: 1.5rem;
+  flex-flow: row wrap;
+  width: 85%;
 }
 
+.mainContentDetails h1 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #9c8ab9;
+}
+
+
+.mainContentDetails h2 {
+  font-weight: 500;
+}
+
+.mainContentDetails p {
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  margin-top: -1rem;
+}
+
+.mainContentDetails h3 {
+  font-weight: 400;
+}
+
+.mainContentDetails div {
+  margin-left: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.links a:hover{
+  font-weight: 600;
+
+}
+
+.right {
+  padding-right: 3rem;
+}
+
+.left {
+  padding-right: 5rem;
+  padding-left: 3rem;
+}
+
+/*~~~~~~~~~~~~Navigation styling~~~~~~~~~~~~~~~*/
 nav {
   margin: 0;
   vertical-align: middle;
