@@ -129,16 +129,30 @@ section h1 {
   font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.5rem;
-  margin-top: -1rem;
-}
-
-.mainContentDiv h3 {
-  font-weight: 400;
 }
 
 .mainContentDiv div {
   margin-left: 2rem;
   margin-bottom: 2rem;
+}
+
+.mainContentDiv div h3 {
+  font-weight: 600;
+}
+
+.mainContentDiv div p {
+  margin-top: -1rem;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+
+.site {
+  font-weight: 500;
+}
+
+.site:hover {
+  font-weight: 600;
 }
 
 .links a:hover{
