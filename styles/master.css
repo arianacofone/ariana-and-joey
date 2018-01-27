@@ -1,14 +1,14 @@
-html, body {
+html {
   font-family: 'Zilla Slab', serif;
-  background-color: rgb(54, 36, 78);
   color: #F6F7FC;
-  background-image: url(https://petapixel.com/assets/uploads/2017/03/gif2.gif);
+  background-color: #1E043A;
+  background-image: url('../ariana_joey_option1.gif');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 95%;
+  margin: 0;
+  height: 97%;
 }
-
 
 a {
   text-decoration: none;
@@ -18,6 +18,7 @@ a {
 header h1{
   margin: 1rem auto;
   background-color: rgba(54, 36, 78, 0.8);
+  color: white;
   width: 9rem;
   text-align: center;
   border: 3px solid #BDA9DA;
