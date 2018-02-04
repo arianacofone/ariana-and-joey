@@ -1,0 +1,26 @@
+{
+  "name": "ariana-and-joey",
+  "version": "1.0.0",
+  "description": "wedding website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arianadziedzic/ariana-and-joey.git"
+  },
+  "keywords": [
+    "wedding"
+  ],
+  "author": "Ariana Dziedzic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arianadziedzic/ariana-and-joey/issues"
+  },
+  "homepage": "https://github.com/arianadziedzic/ariana-and-joey#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "node": "^9.4.0"
+  }
+}
