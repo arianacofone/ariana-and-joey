@@ -207,3 +207,21 @@ div.mainContent h4 {
 .links a:hover{
   color: white;
 }
+
+button {
+  width: 95%;
+  margin: 10% auto 0 auto;
+  padding: 5% 5%;
+  border: none;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  justify-content: center;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+button:hover {
+  font-weight: 700;
+}
