@@ -40,12 +40,13 @@ div.center {
 }
 
 /*Navigation CSS styling*/
-nav ul{
+nav ul {
+  background-color: black;
   display: flex;
   justify-content: center;
   list-style: none;
   position: fixed;
-  bottom: 0;
+  bottom: -1rem;
   left: 0;
   width: 100vw;
   padding-left: 0;
@@ -56,19 +57,18 @@ nav li {
   padding: 2rem;
   font-weight: 500;
   letter-spacing: 0.5px;
-
 }
 
-li:hover {
-  color: #afafaf;
-}
+/*#test:hover + #underline {
+  display: block;
+}*/
 
-.about-border {
+#underline {
     display: block;
-    width: 55px;
+    width: 60px;
     height: 3px;
     background: #f1cd8f;
-    margin: 10px auto;
+    margin-top: 15px;
 }
 
 /*The Day CSS*/
