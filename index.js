@@ -10,18 +10,24 @@ app.get('/', function(req,res) {
   res.sendFile("index.html", {"root": __dirname});
 })
 
-app.get('/details',function(req,res){
-  res.sendFile(path.resolve('./views/details.html'));
+app.get('/the-day',function(req,res){
+  res.sendFile(path.resolve('./views/the-day.html'));
+});
+
+app.get('/travel',function(req,res){
+  res.sendFile(path.resolve('./views/sights.html'));
 });
 
 app.get('/registry',function(req,res){
   res.sendFile(path.resolve('./views/registry.html'));
 });
 
-app.get('/sights',function(req,res){
-  res.sendFile(path.resolve('./views/sights.html'));
+app.get('/rsvp',function(req,res){
+  res.sendFile(path.resolve('./views/registry.html'));
 });
 
-
+app.get('/welcome',function(req,res){
+  res.sendFile(path.resolve('./views/registry.html'));
+});
 
 app.listen(3000, () => console.log('listening on port 3000'));
