@@ -15,6 +15,7 @@ a {
 div.center {
   height: 100%;
   width: 100%;
+
   display: flex;
   position: fixed;
   z-index: 0;
@@ -111,6 +112,7 @@ nav ul {
   justify-content: center;
   list-style: none;
   position: fixed;
+  overflow: hidden;
   bottom: -1rem;
   left: 0;
   width: 100vw;
@@ -119,6 +121,7 @@ nav ul {
 }
 
 nav li {
+  display: block;
   padding: 2rem;
   font-weight: 500;
   letter-spacing: 0.5px;
