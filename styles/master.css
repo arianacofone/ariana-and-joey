@@ -1,13 +1,9 @@
-html {
-  font-family: 'Zilla Slab', serif;
-  color: #F6F7FC;
-  background-color: #1E043A;
-  background-image: url('../assets/ariana_joey_option1.gif');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+/*General CSS for all pages*/
+html, body {
+  font-family: Helvetica;
+  color: white;
+  background-color: black;
   margin: 0;
-  height: 97%;
 }
 
 a {
@@ -15,77 +11,119 @@ a {
   color: inherit;
 }
 
-header h1{
-  margin: 1rem auto;
-  background-color: rgba(54, 36, 78, 0.8);
-  color: white;
-  width: 9rem;
+/*Main content div for all pages*/
+div.center {
+
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  border: 3px solid #BDA9DA;
-  font-size: 1.1rem;
-  border-radius: 5px;
-  padding: .4rem;
-  font-weight: 400;
-  letter-spacing: 1px;
+
 }
 
-header h1:hover {
-  background-color: #BDA9DA;
-  color: rgb(54, 36, 78);
-  border: 3px solid rgb(54, 36, 78);
-  font-weight: 700;
+#title {
+  font-size: 5rem;
+  text-align: 2px;
+  letter-spacing: 3px;
+  -vendor-animation-duration: 15s;
+  -vendor-animation-delay: 10s;
 }
 
-nav {
-  margin: 0;
-  vertical-align: middle;
-  height: 6rem;
+#date {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
 }
 
+/*Navigation CSS styling*/
 nav ul{
   display: flex;
-  background-color: #614E7B;
   justify-content: center;
   list-style: none;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
-  margin: 0;
-  padding: 1rem;
-}
-
-nav li a {
-  color: #BDA9DA;
-  padding: 0 2rem;
-}
-
-nav li a:hover {
-  color: white;
-}
-
-.navElement {
-  margin-left: 5px;
-  padding: 0;
-  font-weight: 400;
-  color: white;
-}
-
-#announcement {
-  letter-spacing: 2px;
-  margin-top: 10rem;
-  text-align: center;
-  align-content: center;
-}
-
-#announcement h1 {
-  font-size: 3rem;
-  margin: 0;
-  padding: 0;
-}
-
-#announcement h2 {
-  padding: 0;
-  font-size: 2rem;
+  padding-left: 0;
   font-weight: 300;
+}
+
+nav li {
+  padding: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+
+}
+
+li:hover {
+  color: #afafaf;
+}
+
+.about-border {
+    display: block;
+    width: 55px;
+    height: 3px;
+    background: #f1cd8f;
+    margin: 10px auto;
+}
+
+/*The Day CSS*/
+div.mainContent {
+  padding: 1.5rem;
+  margin: 0 auto;
+  width: 350px;
+  text-align: left;
+  font-weight: 500;
+}
+
+hr {
+  border-color: #9A9A9A;
+}
+
+div.mainContent h1 {
+  text-transform: uppercase;
+  /*font-weight: 400;*/
+  font-size: .9rem;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+div.mainContent h2 {
+  color: #f1cd8f;
+    font-weight: 500;
+}
+
+div.mainContent p {
+  /*color: #9A9A9A;*/
+    font-weight: 500;
+    line-height: 1.2rem;
+
+}
+
+div.mainContent h3 {
+    font-weight: 500;
+}
+
+div.mainContent h4 {
+  color: #9A9A9A;
+  line-height: 0;
+    font-weight: 500;
+
+}
+
+
+.links {
+  font-size: 1rem;
+  margin-bottom: 4rem;
+  color: #9A9A9A;
+
+}
+
+.links a:hover{
+  color: white;
 }
