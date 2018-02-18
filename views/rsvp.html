@@ -12,16 +12,26 @@
       <h1>RSVP</h1>
       <hr>
 
-      <video width="400" height="300" controls>
-        <source src="../assets/invite-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/D6ys1myeEE4"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      >
+      </iframe>
       <h3>You are invited to...</h3>
       <h2>Ariana & Joey's Wedding!</h2>
 
-      <p>Saturday June 9th, 2018 / 12p-4p</p>
-      <p>Dream Hotel Downtown in New York City</p>
-      <p></p>
+      <h3>Saturday June 9th, 2018 at Noon</h3>
+      <h4 class="links"><a href="http://phdlounge.com/home/" target="_blank">Dream Hotel Downtown</a> in New York City</h4>
+      <p>{Names} We'd love for you to join us on our big day! Couple of quick things -
+        <ul>
+          <li>RSVP by May 1st, 2018</li>
+          <li>Although we love your little ones, this is an adult only affair.</li>
+          <li>Visit our wedding website for all additional details</li>
+        </ul>
       <hr />
       <section id="info">
         <h3>Will you be joining us?</h3>
@@ -48,26 +58,18 @@
 
 
       </form>
-      <h1 id="thankYou" style="display: none">Thanks for RSVPing!
-        <button><a href="/">Check out our wedding website for more details!</a></button>
-      </h1>
+      <h2 id="thankYou" style="display: none">Thanks for RSVPing!
+        <button><a href="/">Check out our wedding website!</a></button>
+      </h2>
     </div>
 
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script>
-      var firebaseRef = new Firebase('https://wedding-9b676.firebaseio.com/couples');
-
-      var formField = document.getElementById('rsvpForm');
-
-      let time = moment().format('LLLL');
-
-      var rsvpValue;
 
 
       function rsvping(rsvpValue) {
         if (rsvpValue > 0) {
-          // document.getElementById("no").style.display = 'hide';
           document.getElementById("rsvpForm").style.display = 'block';
           document.getElementById("rsvpDetails").style.display = 'block';
 
@@ -77,22 +79,36 @@
         }
       }
 
+      var firebaseRefYes = new Firebase('https://wedding-9b676.firebaseio.com/couples/yes');
+      var firebaseRefNo = new Firebase('https://wedding-9b676.firebaseio.com/couples/no');
+      var formField = document.getElementById('rsvpForm');
+      let time = moment().format('LLLL');
+
       formField.addEventListener("submit", function(event) {
           event.preventDefault();
           rsvpValue = document.querySelector('input[name="response"]:checked').value;
-          rsvp = {
-            time: time,
-            guests: 'howdy',
-            quantity: rsvpValue,
-            food: formField.food.value,
-            phone: formField.telephone.value,
-            misc: formField.misc.value,
+          if(rsvpValue > 0) {
+            rsvp = {
+              time: time,
+              guests: 'howdy',
+              quantity: rsvpValue,
+              food: formField.food.value,
+              phone: formField.telephone.value,
+              misc: formField.misc.value,
+            }
+            firebaseRefYes.push(rsvp);
+          } else {
+            rsvp = {
+              time: time,
+              guests: 'howdy',
+              quantity: rsvpValue
+            }
+            firebaseRefNo.push(rsvp);
           }
-          console.log(rsvp)
-          firebaseRef.push(rsvp);
 
-          formField.style.display = 'none';
-          document.getElementById("info").style.display = 'none';
+          console.log(rsvp)
+          document.getElementById("info").style.display = "none";
+          document.getElementById("rsvpForm").style.display = "none";
           document.getElementById("thankYou").style.display = 'block';
       });
 

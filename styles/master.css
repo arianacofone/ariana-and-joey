@@ -223,4 +223,9 @@ button:hover {
 #rsvp {
   text-align: center;
   margin: 0 auto;
+  width: 450px;
+}
+
+#rsvp ul {
+  text-align: left;
 }
