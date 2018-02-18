@@ -26,7 +26,8 @@
 
       <h3>Saturday June 9th, 2018 at Noon</h3>
       <h4 class="links"><a href="http://phdlounge.com/home/" target="_blank">Dream Hotel Downtown</a> in New York City</h4>
-      <p>{Names} We'd love for you to join us on our big day! Couple of quick things -
+      <h1 id="test"></h1>
+      <p>We'd love for you to join us on our big day! Couple of quick things -
         <ul>
           <li>RSVP by May 1st, 2018</li>
           <li>Although we love your little ones, this is an adult only affair.</li>
@@ -57,15 +58,24 @@
         <button type="submit">RSVP</button>
 
 
+
+
       </form>
       <h2 id="thankYou" style="display: none">Thanks for RSVPing!
         <button><a href="/">Check out our wedding website!</a></button>
       </h2>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script>
+    $( document ).ready(function() {
+      var url = window.location + '';
+      var urlAux = url.split('=');
+      var name = urlAux[1];
+      $("#test").attr("value", name);
+    });
 
 
       function rsvping(rsvpValue) {
