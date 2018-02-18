@@ -16,62 +16,90 @@
         <source src="../assets/invite-video.mp4" type="video/mp4">
       Your browser does not support the video tag.
       </video>
+      <h3>You are invited to...</h3>
+      <h2>Ariana & Joey's Wedding!</h2>
 
-      <h2>Ariana & Joey's Wedding</h2>
       <p>Saturday June 9th, 2018 / 12p-4p</p>
       <p>Dream Hotel Downtown in New York City</p>
-
+      <p></p>
       <hr />
-      <form id="rsvp-form" action="/action_page.php">
+      <section id="info">
         <h3>Will you be joining us?</h3>
-        <select>
-          <input type="checkbox" id="2" name="yes" value="2">Of course! Both of us will be there.<br>
-          <input type="checkbox" id="1" name="yes" value="1">Yes! But only one of us can attend.<br>
-          <input type="checkbox" id="0" name="no" value="0">No, but we will be celebrating from afar!<br>
-        </select>
+        <input type="radio" onclick="rsvping(this.value)" name="response" value="2">Of course! Both of us will be there.<br>
+        <input type="radio" onclick="rsvping(this.value)" name="response" value="1">Yes! But only one of us can attend.<br>
+        <input type="radio" onclick="rsvping(this.value)" name="response" value="0">No, but we will be celebrating from afar!<br>
+      </section>
 
-        <br>
-        Do you have any dietary restrictions? <br>
-        <input type="text" name="diet" value="Name">
-        <br>
-        Do you have any music requests?<br>
-        <input type="text" name="music" value="Name">
-        <br>
-        Do you have any words of wisdom?<br>
-        <input type="text" name="wisdom" value="Name">
-        <br>
-        <input type="submit" value="Submit RSVP">
+      <form id="rsvpForm" style="display: none">
+        <div id="rsvpDetails" style="display: none">
+          <h2>Fantastic! Please fill in the details below</h2>
+          <p>Any dietary restrictions?</p>
+          <input type="text" name="food" value="">
+          <br>
+          <p>Phone Number</p>
+          <input type="tel" name="telephone" value="">
+
+          <p>Anything else?</p>
+          <input type="text" name="misc" value="">
+          <br />
+
+        </div>
+        <button type="submit">RSVP</button>
+
+
       </form>
+      <h1 id="thankYou" style="display: none">Thanks for RSVPing!
+        <button><a href="/">Check out our wedding website for more details!</a></button>
+      </h1>
     </div>
 
-    <!-- <nav>
-      <ul>
-        <li><a href="/the-day">the day</a></li>
-        <li><a href="/travel">travel<div id="underline"></div></a></li>
-        <li><a href="/registry">registry</a></li>
-      </ul>
-    </nav> -->
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script>
-      var messagesRef = new Firebase('https://wedding-9b676.firebaseio.com/couples');
+      var firebaseRef = new Firebase('https://wedding-9b676.firebaseio.com/couples');
 
-      var messageField = document.getElementById('rsvp-form');
+      var formField = document.getElementById('rsvpForm');
 
-      var wordInput = document.getElementById("wordName");
+      let time = moment().format('LLLL');
+
+      var rsvpValue;
 
 
-      messageField.addEventListener("submit", function(event) {
+      function rsvping(rsvpValue) {
+        if (rsvpValue > 0) {
+          // document.getElementById("no").style.display = 'hide';
+          document.getElementById("rsvpForm").style.display = 'block';
+          document.getElementById("rsvpDetails").style.display = 'block';
+
+        } else {
+          document.getElementById("rsvpForm").style.display = 'block';
+          document.getElementById("rsvpDetails").style.display = 'none';
+        }
+      }
+
+      formField.addEventListener("submit", function(event) {
           event.preventDefault();
-          console.log(event.target);
+          rsvpValue = document.querySelector('input[name="response"]:checked').value;
+          rsvp = {
+            time: time,
+            guests: 'howdy',
+            quantity: rsvpValue,
+            food: formField.food.value,
+            phone: formField.telephone.value,
+            misc: formField.misc.value,
+          }
+          console.log(rsvp)
+          firebaseRef.push(rsvp);
+
+          formField.style.display = 'none';
+          document.getElementById("info").style.display = 'none';
+          document.getElementById("thankYou").style.display = 'block';
       });
 
       function rsvp() {
-        return rsvp = {
-          quantity: 0,
-          food: '',
-          music: '',
-          advice: ''
-        }
+
+        console.log(rsvp);
+        return rsvp;
       }
 
       // Save data to firebase
