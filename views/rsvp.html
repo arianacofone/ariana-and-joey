@@ -70,13 +70,15 @@
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script>
-    $( document ).ready(function() {
-      var url = window.location + '';
-      var urlAux = url.split('=');
-      var name = urlAux[1];
-      $("#test").attr("value", name);
-    });
 
+      document.addEventListener("DOMContentLoaded", function(){
+      // Handler when the DOM is fully loaded
+        var url = window.location + '';
+        console.log(url);
+        var urlAux = url.split('=');
+        var name = urlAux[1];
+        document.getElementById("test").innerHTML = name;
+      });
 
       function rsvping(rsvpValue) {
         if (rsvpValue > 0) {
