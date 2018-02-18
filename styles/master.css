@@ -216,3 +216,11 @@ button:hover {
 #registry > p {
   line-height: 1.3rem;
 }
+
+
+/**************RSVP************/
+
+#rsvp {
+  text-align: center;
+  margin: 0 auto;
+}

@@ -8,49 +8,74 @@
   </head>
   <body>
 
-    <div class="mainContent">
+    <div class="mainContent" id="rsvp">
+      <h1>RSVP</h1>
+      <hr>
 
-      <video width="350" height="300" controls>
+      <video width="400" height="300" controls>
         <source src="../assets/invite-video.mp4" type="video/mp4">
       Your browser does not support the video tag.
       </video>
 
-      <p>Saturday June 9th, 2018 -- 12p-4p</p>
-      <p>Dream Hotel Downtown in New York, NY</p>
-      <h1>RSVP</h1>
-      <hr>
-      <form action="/action_page.php">
-        <h3>Inez & Florian</h3>
-        First, can you join us?<br>
-        <input type="checkbox" name="yes" value="yes">Of course! Both of us will be there.<br>
-        <input type="checkbox" name="yes" value="yes">Yes! But only one of us can attend.<br>
-        <input type="checkbox" name="no" value="no">No, but we will be celebrating from afar!<br>
+      <h2>Ariana & Joey's Wedding</h2>
+      <p>Saturday June 9th, 2018 / 12p-4p</p>
+      <p>Dream Hotel Downtown in New York City</p>
+
+      <hr />
+      <form id="rsvp-form" action="/action_page.php">
+        <h3>Will you be joining us?</h3>
+        <select>
+          <input type="checkbox" id="2" name="yes" value="2">Of course! Both of us will be there.<br>
+          <input type="checkbox" id="1" name="yes" value="1">Yes! But only one of us can attend.<br>
+          <input type="checkbox" id="0" name="no" value="0">No, but we will be celebrating from afar!<br>
+        </select>
+
         <br>
-        <!-- Name<br>
-        <input type="text" name="guest one" value="Name">
-        <input type="text" name="guest two" value="Name">
-        <br><br> -->
-        Dietary Restrictions?<br>
+        Do you have any dietary restrictions? <br>
         <input type="text" name="diet" value="Name">
         <br>
-        Music Requests?<br>
+        Do you have any music requests?<br>
         <input type="text" name="music" value="Name">
         <br>
-        Words of Wisdom<br>
+        Do you have any words of wisdom?<br>
         <input type="text" name="wisdom" value="Name">
         <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit RSVP">
       </form>
     </div>
 
-    <nav>
+    <!-- <nav>
       <ul>
         <li><a href="/the-day">the day</a></li>
         <li><a href="/travel">travel<div id="underline"></div></a></li>
         <li><a href="/registry">registry</a></li>
       </ul>
-    </nav>
+    </nav> -->
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script>
+      var messagesRef = new Firebase('https://wedding-9b676.firebaseio.com/couples');
 
+      var messageField = document.getElementById('rsvp-form');
+
+      var wordInput = document.getElementById("wordName");
+
+
+      messageField.addEventListener("submit", function(event) {
+          event.preventDefault();
+          console.log(event.target);
+      });
+
+      function rsvp() {
+        return rsvp = {
+          quantity: 0,
+          food: '',
+          music: '',
+          advice: ''
+        }
+      }
+
+      // Save data to firebase
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114048710-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
