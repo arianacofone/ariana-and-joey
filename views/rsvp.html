@@ -71,12 +71,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script>
 
+      var name = '';
+
       document.addEventListener("DOMContentLoaded", function(){
       // Handler when the DOM is fully loaded
         var url = window.location + '';
         console.log(url);
         var urlAux = url.split('=');
-        var name = urlAux[1];
+        name = urlAux[1];
         document.getElementById("test").innerHTML = name;
       });
 
@@ -102,7 +104,7 @@
           if(rsvpValue > 0) {
             rsvp = {
               time: time,
-              guests: 'howdy',
+              guests: name,
               quantity: rsvpValue,
               food: formField.food.value,
               phone: formField.telephone.value,
@@ -112,7 +114,7 @@
           } else {
             rsvp = {
               time: time,
-              guests: 'howdy',
+              guests: name,
               quantity: rsvpValue
             }
             firebaseRefNo.push(rsvp);
