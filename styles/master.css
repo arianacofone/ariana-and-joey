@@ -2,7 +2,7 @@
 html, body {
   font-family: Helvetica;
   color: white;
-  background-color: black;
+  background-color: #33294E;
   margin: 0;
 }
 
@@ -105,7 +105,7 @@ to   { opacity: 1; }
 
 /**************Navigation Styling************/
 nav ul {
-  background-color: black;
+  background-color: #33294E;
   display: flex;
   justify-content: center;
   list-style: none;
@@ -215,4 +215,17 @@ button:hover {
 
 #registry > p {
   line-height: 1.3rem;
+}
+
+
+/**************RSVP************/
+
+#rsvp {
+  text-align: center;
+  margin: 0 auto;
+  width: 450px;
+}
+
+#rsvp ul {
+  text-align: left;
 }

@@ -8,49 +8,118 @@
   </head>
   <body>
 
-    <div class="mainContent">
-
-      <video width="350" height="300" controls>
-        <source src="../assets/invite-video.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-      </video>
-
-      <p>Saturday June 9th, 2018 -- 12p-4p</p>
-      <p>Dream Hotel Downtown in New York, NY</p>
+    <div class="mainContent" id="rsvp">
       <h1>RSVP</h1>
       <hr>
-      <form action="/action_page.php">
-        <h3>Inez & Florian</h3>
-        First, can you join us?<br>
-        <input type="checkbox" name="yes" value="yes">Of course! Both of us will be there.<br>
-        <input type="checkbox" name="yes" value="yes">Yes! But only one of us can attend.<br>
-        <input type="checkbox" name="no" value="no">No, but we will be celebrating from afar!<br>
-        <br>
-        <!-- Name<br>
-        <input type="text" name="guest one" value="Name">
-        <input type="text" name="guest two" value="Name">
-        <br><br> -->
-        Dietary Restrictions?<br>
-        <input type="text" name="diet" value="Name">
-        <br>
-        Music Requests?<br>
-        <input type="text" name="music" value="Name">
-        <br>
-        Words of Wisdom<br>
-        <input type="text" name="wisdom" value="Name">
-        <br>
-        <input type="submit" value="Submit">
+
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/D6ys1myeEE4"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+      >
+      </iframe>
+      <h3>You are invited to...</h3>
+      <h2>Ariana & Joey's Wedding!</h2>
+
+      <h3>Saturday June 9th, 2018 at Noon</h3>
+      <h4 class="links"><a href="http://phdlounge.com/home/" target="_blank">Dream Hotel Downtown</a> in New York City</h4>
+      <p>{Names} We'd love for you to join us on our big day! Couple of quick things -
+        <ul>
+          <li>RSVP by May 1st, 2018</li>
+          <li>Although we love your little ones, this is an adult only affair.</li>
+          <li>Visit our wedding website for all additional details</li>
+        </ul>
+      <hr />
+      <section id="info">
+        <h3>Will you be joining us?</h3>
+        <input type="radio" onclick="rsvping(this.value)" name="response" value="2">Of course! Both of us will be there.<br>
+        <input type="radio" onclick="rsvping(this.value)" name="response" value="1">Yes! But only one of us can attend.<br>
+        <input type="radio" onclick="rsvping(this.value)" name="response" value="0">No, but we will be celebrating from afar!<br>
+      </section>
+
+      <form id="rsvpForm" style="display: none">
+        <div id="rsvpDetails" style="display: none">
+          <h2>Fantastic! Please fill in the details below</h2>
+          <p>Any dietary restrictions?</p>
+          <input type="text" name="food" value="">
+          <br>
+          <p>Phone Number</p>
+          <input type="tel" name="telephone" value="">
+
+          <p>Anything else?</p>
+          <input type="text" name="misc" value="">
+          <br />
+
+        </div>
+        <button type="submit">RSVP</button>
+
+
       </form>
+      <h2 id="thankYou" style="display: none">Thanks for RSVPing!
+        <button><a href="/">Check out our wedding website!</a></button>
+      </h2>
     </div>
 
-    <nav>
-      <ul>
-        <li><a href="/the-day">the day</a></li>
-        <li><a href="/travel">travel<div id="underline"></div></a></li>
-        <li><a href="/registry">registry</a></li>
-      </ul>
-    </nav>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script>
 
+
+      function rsvping(rsvpValue) {
+        if (rsvpValue > 0) {
+          document.getElementById("rsvpForm").style.display = 'block';
+          document.getElementById("rsvpDetails").style.display = 'block';
+
+        } else {
+          document.getElementById("rsvpForm").style.display = 'block';
+          document.getElementById("rsvpDetails").style.display = 'none';
+        }
+      }
+
+      var firebaseRefYes = new Firebase('https://wedding-9b676.firebaseio.com/couples/yes');
+      var firebaseRefNo = new Firebase('https://wedding-9b676.firebaseio.com/couples/no');
+      var formField = document.getElementById('rsvpForm');
+      let time = moment().format('LLLL');
+
+      formField.addEventListener("submit", function(event) {
+          event.preventDefault();
+          rsvpValue = document.querySelector('input[name="response"]:checked').value;
+          if(rsvpValue > 0) {
+            rsvp = {
+              time: time,
+              guests: 'howdy',
+              quantity: rsvpValue,
+              food: formField.food.value,
+              phone: formField.telephone.value,
+              misc: formField.misc.value,
+            }
+            firebaseRefYes.push(rsvp);
+          } else {
+            rsvp = {
+              time: time,
+              guests: 'howdy',
+              quantity: rsvpValue
+            }
+            firebaseRefNo.push(rsvp);
+          }
+
+          console.log(rsvp)
+          document.getElementById("info").style.display = "none";
+          document.getElementById("rsvpForm").style.display = "none";
+          document.getElementById("thankYou").style.display = 'block';
+      });
+
+      function rsvp() {
+
+        console.log(rsvp);
+        return rsvp;
+      }
+
+      // Save data to firebase
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114048710-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
