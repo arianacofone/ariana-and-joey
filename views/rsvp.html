@@ -5,92 +5,134 @@
     <title>Party Time!</title>
     <link rel='shortcut icon' type='image/x-icon' href='./assets/favicon.ico' />
     <link rel="stylesheet" href="../styles/master.css" media="screen" charset="utf-8">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   </head>
   <body>
+
+    <div class="center" id="howdy" style="display: none;">
+      <h3 id="title">Thank you for RSVPing! <i class="em em-wink"></i><br />
+        <span id="date">Redirecting you to the main page...</span>
+      </h3>
+    </div>
 
     <div class="mainContent" id="rsvp">
       <h1>RSVP</h1>
       <hr>
-
       <iframe
-        width="560"
-        height="315"
+        id="videoCSS"
+        width="100%"
+        height="275"
         src="https://www.youtube.com/embed/D6ys1myeEE4"
         frameborder="0"
         allow="encrypted-media"
+        autoplay
         allowfullscreen
       >
       </iframe>
-      <h3>You are invited to...</h3>
-      <h2>Ariana & Joey's Wedding!</h2>
+      <h3 style="margin-bottom: 0;">Inez &amp; Florian Dziedzic invite you to</h3>
+      <h2 style="margin-top: 10px; font-size: 2rem;">Ariana & Joey's Wedding!</h2>
 
-      <h3>Saturday June 9th, 2018 at Noon</h3>
-      <h4 class="links"><a href="http://phdlounge.com/home/" target="_blank">Dream Hotel Downtown</a> in New York City</h4>
-      <h1 id="test"></h1>
-      <p>We'd love for you to join us on our big day! Couple of quick things -
-        <ul>
-          <li>RSVP by May 1st, 2018</li>
-          <li>Although we love your little ones, this is an adult only affair.</li>
-          <li>Visit our wedding website for all additional details</li>
+      <h3 style="margin-bottom: 0;">Saturday June 9th, 2018 / 12p - 4p</h3>
+      <h3 style="margin-top: 10px; color: white" class="links"><a href="http://phdlounge.com/home/" target="_blank">Dream Hotel Downtown</a> in New York City</h3>
+
+      <hr style="margin: 3rem 0;"/></hr>
+
+      <div id="reminders" style="line-height: 1.5rem;">
+        <p style="font-size: 1.2rem;"><span id="names"></span></p>
+        <p style="line-height: 1.5rem">We'd love for you to come and celebrate with us! Here's a few things you should know:</p>
+        <ul id="rsvpNotes">
+          <li>Please RSVP by May 1st, 2018</li>
+          <li>We adore your little ones, but this is an adult only affair</li>
+          <li>Visit our <a href="/" target="_blank" style="text-decoration: underline">wedding website</a> for all additional details</li>
         </ul>
-      <hr />
+      </div>
+
+      <br /><br />
+
+      <div id="stuff" style="padding-bottom: 3rem">
       <section id="info">
-        <h3>Will you be joining us?</h3>
+        <h2>RSVP<i style="float: right;" class="em em-rocket"></i></h2>
+        <h3 style="font-size: 1.5rem;">Will you be joining us?</h3>
         <input type="radio" onclick="rsvping(this.value)" name="response" value="2">Of course! Both of us will be there.<br>
         <input type="radio" onclick="rsvping(this.value)" name="response" value="1">Yes! But only one of us can attend.<br>
         <input type="radio" onclick="rsvping(this.value)" name="response" value="0">No, but we will be celebrating from afar!<br>
       </section>
 
       <form id="rsvpForm" style="display: none">
-        <div id="rsvpDetails" style="display: none">
-          <h2>Fantastic! Please fill in the details below</h2>
-          <p>Any dietary restrictions?</p>
-          <input type="text" name="food" value="">
-          <br>
-          <p>Phone Number</p>
-          <input type="tel" name="telephone" value="">
 
-          <p>Anything else?</p>
+
+        <div id="rsvpDetails" style="display: none">
+          <hr style="margin: 3rem 0;"/></hr>
+          <h2 style="text-align: center; color: white; margin-bottom:30px">Hip, hip, hooray!</h2>
+          <p style="color: #f1cd8f">Please fill in the details below.</p>
+
+          <div id="onePerson" style="display: none; color: white;">
+            <p style="margin-bottom: 0">Which one of you will be coming?</p>
+            <input type="radio" name="guest" id="name1" value="">
+              <span id="guestA">
+              </span><br />
+            <input type="radio" name="guest"  id="name2" value=""/>
+            <span id="guestB">
+            </span>
+          </div>
+
+          <p style="margin-bottom: 5px">Phone Number</p>
+          <input type="tel" name="telephone" value="">
+          <br />
+
+          <p style="margin-bottom: 5px">Any dietary restrictions?</p>
+          <input type="text" name="food" value="">
+          <br />
+
+
+          <p style="margin-bottom: 5px">Anything else?</p>
           <input type="text" name="misc" value="">
           <br />
 
         </div>
-        <button type="submit">RSVP</button>
-
-
-
-
+        <button type="submit" style="margin-top: 2rem">RSVP</button>
+        </div>
       </form>
-      <h2 id="thankYou" style="display: none">Thanks for RSVPing!
-        <button><a href="/">Check out our wedding website!</a></button>
-      </h2>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script>
 
       var name = '';
+      var name1 = '';
+      var name2 = '';
 
       document.addEventListener("DOMContentLoaded", function(){
       // Handler when the DOM is fully loaded
         var url = window.location + '';
-        console.log(url);
         var urlAux = url.split('=');
         name = decodeURI(urlAux[1]);
-        console.log(name);
-        // name.replace(/%20/g, " ");
-        // decodeURI(name);
-        document.getElementById("test").innerHTML = name;
+        var names = name.split('&');
+        name1 = names[0].trim();
+        name2 = names[1].trim();
+        document.getElementById("names").innerHTML = name;
+
       });
 
+
       function rsvping(rsvpValue) {
-        if (rsvpValue > 0) {
+        if (rsvpValue == 2) {
           document.getElementById("rsvpForm").style.display = 'block';
           document.getElementById("rsvpDetails").style.display = 'block';
+          document.getElementById("onePerson").style.display = 'none';
 
-        } else {
+        } else if(rsvpValue == 1) {
+          document.getElementById("rsvpForm").style.display = 'block';
+          document.getElementById("rsvpDetails").style.display = 'block';
+          document.getElementById("onePerson").style.display = 'block';
+          document.getElementById("guestA").innerHTML = name1;
+          document.getElementById("name1").setAttribute('value', name1);
+
+          document.getElementById("guestB").innerHTML = name2;
+          document.getElementById("name2").setAttribute('value', name2);
+        }
+        else {
           document.getElementById("rsvpForm").style.display = 'block';
           document.getElementById("rsvpDetails").style.display = 'none';
         }
@@ -104,7 +146,9 @@
       formField.addEventListener("submit", function(event) {
           event.preventDefault();
           rsvpValue = document.querySelector('input[name="response"]:checked').value;
-          if(rsvpValue > 0) {
+
+          var rsvp = {};
+          if(rsvpValue == 2) {
             rsvp = {
               time: time,
               guests: name,
@@ -112,6 +156,15 @@
               food: formField.food.value,
               phone: formField.telephone.value,
               misc: formField.misc.value,
+            }
+            firebaseRefYes.push(rsvp);
+          } else if(rsvpValue == 1) {
+            var attendingGuest = document.querySelector('input[name="guest"]:checked').value;
+            rsvp = {
+              time: time,
+              guests: name,
+              attendingGuest: attendingGuest,
+              quantity: rsvpValue
             }
             firebaseRefYes.push(rsvp);
           } else {
@@ -122,20 +175,19 @@
             }
             firebaseRefNo.push(rsvp);
           }
+          // console.log(rsvp)
+          var rsvpDiv = document.getElementById("rsvp");
+          document.body.removeChild(rsvpDiv);
 
-          console.log(rsvp)
-          document.getElementById("info").style.display = "none";
-          document.getElementById("rsvpForm").style.display = "none";
-          document.getElementById("thankYou").style.display = 'block';
+          document.getElementById("howdy").style.display = 'block';
+
+          setTimeout(function () {
+
+            window.location.href = "/"; //will redirect to your blog page (an ex: blog.html)
+         }, 3000);
       });
 
-      function rsvp() {
 
-        console.log(rsvp);
-        return rsvp;
-      }
-
-      // Save data to firebase
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114048710-1"></script>
     <script>

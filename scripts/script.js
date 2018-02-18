@@ -20,7 +20,7 @@ function confetti() {
           y: Math.random() * H, //y-coordinate
           r: Math.random() * 15 + 1, //radius
           d: Math.random() * mp, //density
-          color: "rgb(241, 205, 143)",
+          color: "rgba(" + Math.floor((Math.random() * 255)) + ", " + Math.floor((Math.random() * 255)) + ", " + Math.floor((Math.random() * 255)) + ", 0.8)",
           tilt: Math.floor(Math.random() * 5) - 5
       });
   }
