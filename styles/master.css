@@ -484,7 +484,7 @@ input[type=radio]:checked::after {
 
   div#reminders p:nth-of-type(2) {
     margin-top: 2rem;
-    font-size: 3.5rem;
+    font-size: 3rem;
     line-height: 3rem;
   }
 
@@ -494,7 +494,7 @@ input[type=radio]:checked::after {
 
   #rsvpNotes li {
     line-height: 3.5rem;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   #rsvp section {
@@ -512,11 +512,11 @@ input[type=radio]:checked::after {
   }
 
   #onePerson p:nth-of-type(1)  {
-    font-size: 1.8rem;
+    font-size: 3rem;
   }
 
   #onePerson span {
-    font-size: 1.8rem;
+    font-size: 3rem;
   }
 
   #rsvpDetails hr {
@@ -541,9 +541,9 @@ input[type=radio]:checked::after {
     border: 2px solid white;
     background: none;
     color: white;
-    height: 2.5rem;
-    font-size: .8rem;
-    padding: .5rem;
+    height: 4rem;
+    font-size: 2rem;
+    padding: 1rem;
   }
 
   input[type=text] {
@@ -551,9 +551,9 @@ input[type=radio]:checked::after {
     border: 2px solid white;
     background: none;
     color: white;
-    height: 2.5rem;
-    font-size: .8rem;
-    padding: .5rem;
+    height: 4rem;
+    font-size: 2rem;
+    padding: 1rem;
   }
 
   input[type=radio] {
@@ -564,12 +564,6 @@ input[type=radio]:checked::after {
     margin-right: 2rem;
   }
 
-  input[type=radio]:hover {
-    background: #9faab7;
-  }
-  input[type=radio]:checked {
-    background: #f1cd8f;;
-  }
   input[type=radio]:checked::before {
     height: 50px;
     width: 50px;
