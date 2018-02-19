@@ -234,6 +234,11 @@ button:hover {
   margin-bottom: 0;
 }
 
+#rsvp h2 {
+  margin-top: 10px;
+  font-size: 2rem;
+}
+
 #rsvp h3:nth-of-type(3) {
   margin-top: 10px;
   color: white
@@ -436,101 +441,128 @@ input[type=radio]:checked::after {
     width: 70%;
   }
 
+  #rsvp h2 {
+    margin-top: 2rem;
+    font-size: 3.5rem;
+  }
+
+  #rsvp h3 {
+    font-size: 2rem;
+  }
+
   iframe {
     margin-top: 2rem;
     height: 400px;
   }
 
-  div#rsvp h2 {
-    margin-top: 3rem;
+  #rsvp h3:nth-of-type(3) {
+    margin-top: 10px;
+    color: white
+  }
+
+  #rsvp hr:nth-of-type(2) {
+    margin: 2.5rem 0;
+  }
+
+  div#reminders {
+    text-align: left;
+    line-height: 1.5rem;
+  }
+
+  div#reminders p:nth-of-type(1) {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  div#reminders p:nth-of-type(2) {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  #rsvpNotes li {
+    line-height: 3.5rem;
+    font-size: 1.5rem;
+  }
+
+  #rsvp section {
+    font-size: 2rem;
+    line-height: 4rem;
+  }
+
+  #rsvp section h2{
+    font-size: 3rem;
+  }
+
+  #onePerson p:nth-of-type(1)  {
     font-size: 2rem;
   }
 
-    #rsvp h3 {
-      font-size: 2.5rem;
-      line-height: 1.2rem;
-    }
+  #onePerson span {
+    font-size: 2rem;
+  }
 
-    #reminders p {
-      font-size: 1.5rem;
-    }
+  #rsvpDetails hr {
+    margin: 3rem 0;
+  }
 
-    #reminders ul {
-      font-size: 1.5rem;
-    }
+  #rsvpDetails h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+  }
+  #rsvpDetails p {
+    margin: 3rem 0 1rem 0;
 
-    #stuff {
-      border: 1px solid white;
-      padding: .5rem 1.5rem 1.5rem 1.5rem;
-    }
+  }
+  #rsvpForm button {
+    margin-top: 4rem;
+  }
 
-    #info input {
-      font-size: 1.5rem;
-    }
+  input[type=tel] {
+    width: 95%;
+    border: 2px solid white;
+    background: none;
+    color: white;
+    height: 1.5rem;
+    font-size: .8rem;
+    padding: .5rem;
+  }
 
-    #rsvpDetails p{
-      font-size: 1.5rem;
-    }
+  input[type=text] {
+    width: 95%;
+    border: 2px solid white;
+    background: none;
+    color: white;
+    height: 1.5rem;
+    font-size: .8rem;
+    padding: .5rem;
+  }
 
-    input[type=tel] {
-      width: 95%;
-      border: 2px solid white;
-      background: none;
-      color: white;
-      height: 1.5rem;
-      font-size: .8rem;
-      padding: .5rem;
-    }
+  input[type=radio] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 5px;
+    padding: .5rem;
+    height: 30px;
+    width: 30px;
+    border: 2px solid white;
+    margin-right: 2rem;
+  }
 
-    input[type=text] {
-      width: 95%;
-      border: 2px solid white;
-      background: none;
-      color: white;
-      height: 1.5rem;
-      font-size: .8rem;
-      padding: .5rem;
-    }
-
-    input[type=radio] {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      -ms-appearance: none;
-      -o-appearance: none;
-      appearance: none;
-      position: relative;
-      top: 5px;
-      padding: .5rem;
-      height: 20px;
-      width: 20px;
-      border: 2px solid white;
-      margin-right: 0.5rem;
-    }
-
-    input[type=radio]:hover {
-      background: #9faab7;
-    }
-    input[type=radio]:checked {
-      background: #f1cd8f;;
-    }
-    input[type=radio]:checked::before {
-      height: 20px;
-      width: 20px;
-      position: absolute;
-      /*content: '✔';*/
-      color: white ;
-      display: inline-block;
-      font-size: 26.66667px;
-      text-align: center;
-      line-height: 40px;
-    }
-    input[type=radio]:checked::after {
-      background: #f1cd8f;;
-      content: '✔';
-      content: '';
-      display: block;
-      position: relative;
-      z-index: 100;
-    }
+  input[type=radio]:hover {
+    background: #9faab7;
+  }
+  input[type=radio]:checked {
+    background: #f1cd8f;;
+  }
+  input[type=radio]:checked::before {
+    height: 30px;
+    width: 30px;
+    line-height: 40px;
+  }
 
 }
