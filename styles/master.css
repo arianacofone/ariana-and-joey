@@ -169,19 +169,25 @@ hr {
 
 div.mainContent h2 {
   color: #f1cd8f;
+  margin-bottom: .5rem;
 }
 
 div.mainContent p {
+  margin-top: 0;
   line-height: 1.2rem;
 }
 
 div.mainContent h3 {
+
   font-size: 1.15rem;
+  /*margin-bottom: 0;*/
 }
 
 div.mainContent h4 {
   color: #928CA5;
   line-height: 0;
+  margin-top:0;
+  margin-bottom: 2rem;
 }
 
 .links {
@@ -213,7 +219,7 @@ button:hover {
 }
 
 #registry > p {
-  line-height: 1.25rem;
+  line-height: 1.4rem;
 }
 
 
