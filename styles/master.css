@@ -2,7 +2,7 @@
 html, body {
   font-family: Helvetica;
   color: white;
-  background-color: #33294E;
+  background-color: #150e1e;
   margin: 0;
 }
 
@@ -28,11 +28,11 @@ div.center {
   position: fixed;
   width: 100%;
   height: 100%;
-  -webkit-animation: fadein 15s; /* Safari, Chrome and Opera > 12.1 */
-     -moz-animation: fadein 15s; /* Firefox < 16 */
-      -ms-animation: fadein 15s; /* Internet Explorer */
-       -o-animation: fadein 15s; /* Opera < 12.1 */
-          animation: fadein 15s;
+  -webkit-animation: fadein 8s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 8s; /* Firefox < 16 */
+      -ms-animation: fadein 8s; /* Internet Explorer */
+       -o-animation: fadein 8s; /* Opera < 12.1 */
+          animation: fadein 8s;
 }
 
 #title {
@@ -49,7 +49,6 @@ div.center {
 #date {
   text-align: center;
   font-size: 2rem;
-  font-weight: 300;
   letter-spacing: 2px;
   -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
      -moz-animation: fadein 6s; /* Firefox < 16 */
@@ -105,7 +104,7 @@ to   { opacity: 1; }
 
 /**************Navigation Styling************/
 nav ul {
-  background-color: #33294E;
+  background-color: #150e1e;
   display: flex;
   justify-content: center;
   list-style: none;
@@ -118,7 +117,7 @@ nav ul {
 }
 
 nav li {
-  padding: 1.2rem;
+  padding: .8rem 1.2rem;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -146,8 +145,8 @@ li:hover {
 
 /**************Main Content Styling************/
 div.mainContent {
-  padding: 1.5rem;
-  margin: 0 auto 3.5rem auto;
+  padding: 1rem;
+  margin: 1rem auto 2.5rem auto;
   width: 350px;
 }
 
@@ -165,6 +164,7 @@ div.mainContent h1 {
 
 hr {
   border-color: #928CA5;
+  margin: 0;
 }
 
 div.mainContent h2 {
@@ -197,7 +197,7 @@ div.mainContent h4 {
 
 button {
   width: 100%;
-  margin: 3rem auto 0 auto;
+  margin: 1.7rem auto 0 auto;
   padding: 5% 5%;
   border: none;
   color: black;
@@ -205,7 +205,6 @@ button {
   border-radius: 5px;
   justify-content: center;
   font-size: 1rem;
-  letter-spacing: 1px;
   font-weight: 500;
 }
 
@@ -214,30 +213,22 @@ button:hover {
 }
 
 #registry > p {
-  line-height: 1.5rem;
+  line-height: 1.25rem;
 }
 
 
 /**************RSVP************/
 
 #rsvp {
-  /*text-align: center;*/
   margin: 0 auto;
   width: 450px;
 }
-
-/*#videoCSS {
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  align: center;
-}*/
 
 #reminders {
   text-align: left;
 }
 
-#stuff {
+#rsvpDiv {
   border: 1px solid white;
   padding: .5rem 1.5rem 1.5rem 1.5rem;
   text-align: left;
@@ -246,8 +237,6 @@ button:hover {
 #rsvpNotes li:hover {
   color: white;
 }
-
-#info {}
 
 input[type=tel] {
   width: 95%;
@@ -311,29 +300,6 @@ input[type=radio]:checked::after {
 }
 
 @media only screen and (max-device-width: 500px) {
-  div.center {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    position: fixed;
-    z-index: 0;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  #canvas {
-    z-index: -1;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    -webkit-animation: fadein 15s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 15s; /* Firefox < 16 */
-        -ms-animation: fadein 15s; /* Internet Explorer */
-         -o-animation: fadein 15s; /* Opera < 12.1 */
-            animation: fadein 15s;
-  }
-
   #title {
     font-size: 7rem;
     text-align: 2px;
@@ -347,46 +313,69 @@ input[type=radio]:checked::after {
     letter-spacing: 2px;
   }
 
-    div.mainContent {
-        width: 80%;
-        margin-top: 4rem;
-    }
+  div.mainContent {
+      width: 70%;
+      margin-top: 4rem;
+      margin-bottom: 10rem;
+  }
+
+  div.mainContent h1 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+
+  }
 
     div.mainContent p {
-      line-height: 2rem;
-      font-size: .9rem;
+      margin-top: 0;
+      line-height: 3rem;
+      font-size: 2rem;
+    }
+
+    div.mainContent h2 {
+      margin-bottom: .5rem;
+      font-size: 4rem;
     }
 
     div.mainContent h3 {
-      font-size: .9rem;
+      font-size: 3rem;
     }
 
     div.mainContent h4 {
-      line-height: 1.5rem;
-      font-size: .9rem;
+      line-height: 2rem;
+      font-size: 2.5rem;
     }
 
     #registry > p {
-      line-height: 2.5rem;
-      font-size: .9rem;
+      line-height: 4rem;
+      font-size: 2.2rem;
     }
 
     nav ul {
       font-size: 2.5rem;
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      position: fixed;
+      bottom: -1rem;
+      left: 0;
+      width: 100vw;
+      padding-left: 0;
+      font-weight: 300;
     }
 
     nav li {
-      padding: 1.2rem;
+      padding: 3.5rem;
       letter-spacing: 0.5px;
-    }
-
-    li:hover {
-      color: #928CA5;
     }
 
     button {
       font-size: 2.5rem;
       letter-spacing: 1px;
+    }
+
+    hr {
+      border-color: #928CA5;
+      margin: -1rem;
     }
 
     #rsvp {
@@ -400,20 +389,20 @@ input[type=radio]:checked::after {
     }
 
     #rsvp h2 {
-      font-size: 1.2rem;
+      font-size: 2rem;
     }
 
     #rsvp h3 {
-      font-size: .8rem;
+      font-size: 2.5rem;
       line-height: 1.2rem;
     }
 
     #reminders p {
-      font-size: .8rem;
+      font-size: 1.5rem;
     }
 
     #reminders ul {
-      font-size: .8rem;
+      font-size: 1.5rem;
     }
 
     #stuff {
@@ -422,11 +411,11 @@ input[type=radio]:checked::after {
     }
 
     #info input {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
 
     #rsvpDetails p{
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
 
     input[type=tel] {
