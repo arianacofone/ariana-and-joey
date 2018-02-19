@@ -327,22 +327,24 @@ input[type=radio]:checked::after {
 
     div.mainContent p {
       margin-top: 0;
-      line-height: 3.5rem;
+      line-height: 3.2rem;
       font-size: 2.5rem;
     }
 
     div.mainContent h2 {
-      margin-bottom: .5rem;
+      margin-top: 5rem;
+      margin-bottom: 1rem;
       font-size: 4rem;
     }
 
     div.mainContent h3 {
       font-size: 3rem;
+      margin-bottom: 0;
     }
 
     div.mainContent h4 {
-      /*margin-top: -1rem;*/
-      line-height: 2rem;
+      margin-top: 1rem;
+      line-height: 3rem;
       font-size: 2.5rem;
     }
     hr {
@@ -351,7 +353,7 @@ input[type=radio]:checked::after {
 
     #registry > p {
       line-height: 4rem;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
     }
 
     nav ul {
@@ -373,6 +375,7 @@ input[type=radio]:checked::after {
     }
 
     button {
+      margin-top: 7rem;
       font-size: 2.5rem;
       letter-spacing: 1px;
     }
