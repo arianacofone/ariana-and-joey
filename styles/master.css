@@ -438,67 +438,83 @@ input[type=radio]:checked::after {
 
   #rsvp {
     margin: 0 auto;
-    width: 70%;
+    width: 85%;
   }
 
   #rsvp h2 {
-    margin-top: 2rem;
+    margin-top: 4rem;
     font-size: 3.5rem;
   }
 
   #rsvp h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin: 2rem 0;
   }
 
   iframe {
     margin-top: 2rem;
-    height: 400px;
+    height: 500px;
+  }
+
+  #rsvp h3:nth-of-type(2) {
+    margin-top: 4rem;
+    color: white
   }
 
   #rsvp h3:nth-of-type(3) {
-    margin-top: 10px;
+    margin-top: -1rem;
     color: white
   }
 
   #rsvp hr:nth-of-type(2) {
-    margin: 2.5rem 0;
+    margin: 6rem 0;
   }
 
   div#reminders {
     text-align: left;
-    line-height: 1.5rem;
+    line-height: 2rem;
   }
 
   div#reminders p:nth-of-type(1) {
-    font-size: 2rem;
+    font-size: 5rem;
     line-height: 2rem;
   }
 
   div#reminders p:nth-of-type(2) {
-    font-size: 2rem;
+    margin-top: 2rem;
+    font-size: 2.5rem;
     line-height: 3rem;
+  }
+
+  #rsvpDiv {
+    margin-bottom:5rem;
   }
 
   #rsvpNotes li {
     line-height: 3.5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   #rsvp section {
-    font-size: 2rem;
+    font-size: 2.5rem;
     line-height: 4rem;
   }
 
   #rsvp section h2{
+    font-size: 4rem;
+  }
+
+  #rsvp section h3{
     font-size: 3rem;
+    margin: 4rem 0;
   }
 
   #onePerson p:nth-of-type(1)  {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   #onePerson span {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 
   #rsvpDetails hr {
@@ -511,7 +527,7 @@ input[type=radio]:checked::after {
     margin-bottom: 2rem;
   }
   #rsvpDetails p {
-    margin: 3rem 0 1rem 0;
+    margin: 5rem 0 1.5rem 0;
 
   }
   #rsvpForm button {
@@ -539,17 +555,10 @@ input[type=radio]:checked::after {
   }
 
   input[type=radio] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    position: relative;
-    top: 5px;
-    padding: .5rem;
-    height: 30px;
-    width: 30px;
-    border: 2px solid white;
+    top: 10px;
+    padding: 1rem;
+    height: 50px;
+    width: 50px;
     margin-right: 2rem;
   }
 
@@ -560,8 +569,8 @@ input[type=radio]:checked::after {
     background: #f1cd8f;;
   }
   input[type=radio]:checked::before {
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
     line-height: 40px;
   }
 
