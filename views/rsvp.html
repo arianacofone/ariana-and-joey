@@ -58,7 +58,7 @@
         <input type="radio" onclick="rsvping(this.value)" name="response" value="0">No, but we'll be celebrating from afar!<br>
       </section>
 
-      <form id="rsvpForm" style="display: none">
+      <form id="rsvpForm" action="/test" method="post" style="display: none">
 
         <div id="rsvpDetails" style="display: none">
           <hr></hr>
@@ -76,7 +76,7 @@
           </div>
 
           <p>Phone Number</p>
-          <input type="tel" pattern="[1-9]{1}[0-9]{9}" placeholder="111-111-1111" name="telephone" required value="">
+          <input type="tel" pattern="[1-9]{1}[0-9]{9}" placeholder="111-111-1111" name="telephone">
           <br />
 
           <p>Any dietary restrictions?</p>
@@ -95,6 +95,7 @@
 
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 
       var name = '';
@@ -143,6 +144,12 @@
 
       formField.addEventListener("submit", function(event) {
           event.preventDefault();
+
+        $.ajax({
+          type: 'POST',
+          url: $('#rsvpForm').attr('action')
+        })
+
           rsvpValue = document.querySelector('input[name="response"]:checked').value;
 
           var rsvp = {};
