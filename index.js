@@ -27,6 +27,10 @@ app.get('/rsvp',function(req,res){
   res.sendFile(path.resolve('./views/rsvp.html'));
 });
 
+app.get('/rsvplease',function(req,res){
+  res.sendFile(path.resolve('./views/rsvp-please.html'));
+});
+
 app.get('/party-time',function(req,res){
   res.sendFile(path.resolve('./views/party-time.html'));
 });

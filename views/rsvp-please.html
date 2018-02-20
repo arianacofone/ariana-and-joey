@@ -38,7 +38,7 @@
       <hr /></hr>
 
       <div id="reminders">
-        <p><span id="names"></span></p>
+        <p><span id="name"></span></p>
         <p>We'd love for you to come and celebrate with us! Here's a few things you should know:</p>
         <ul id="rsvpNotes">
           <li>Please RSVP by May 1st, 2018</li>
@@ -53,9 +53,8 @@
       <section>
         <h2>RSVP<i style="float: right;" class="em em-rocket"></i></h2>
         <h3>Will you be joining us?</h3>
-        <input type="radio" onclick="rsvping(this.value)" name="response" value="2">Of course! Both of us will be there.<br>
-        <input type="radio" onclick="rsvping(this.value)" name="response" value="1">Yes! But only one of us can attend.<br>
-        <input type="radio" onclick="rsvping(this.value)" name="response" value="0">No, but we'll be celebrating from afar!<br>
+        <input type="radio" onclick="rsvping(this.value)" name="response" value="1">Of course! I'll be there.<br>
+        <input type="radio" onclick="rsvping(this.value)" name="response" value="0">No, but I'll be celebrating from afar!<br>
       </section>
 
       <form id="rsvpForm" style="display: none">
@@ -64,16 +63,6 @@
           <hr></hr>
           <h2>Hip, hip, hooray!</h2>
           <p style="color: #f1cd8f">Please fill in the details below.</p>
-
-          <div id="onePerson" style="display: none; color: white;">
-            <p>Which one of you will be coming?</p>
-            <input type="radio" name="guest" id="name1" value="">
-              <span id="guestA">
-              </span><br />
-            <input type="radio" name="guest"  id="name2" value=""/>
-            <span id="guestB">
-            </span>
-          </div>
 
           <p>Phone Number</p>
           <input type="tel" name="telephone" value="">
@@ -98,46 +87,33 @@
     <script>
 
       var name = '';
-      var name1 = '';
-      var name2 = '';
 
       document.addEventListener("DOMContentLoaded", function(){
       // Handler when the DOM is fully loaded
         var url = window.location + '';
         var urlAux = url.split('=');
         name = decodeURI(urlAux[1]);
-        var names = name.split('&');
-        name1 = names[0].trim();
-        name2 = names[1].trim();
-        document.getElementById("names").innerHTML = name;
+        // var names = name.split('&');
+        // name1 = names[0].trim();
+        // name2 = names[1].trim();
+        document.getElementById("name").innerHTML = name;
 
       });
 
 
       function rsvping(rsvpValue) {
-        if (rsvpValue == 2) {
+        if (rsvpValue == 1) {
           document.getElementById("rsvpForm").style.display = 'block';
           document.getElementById("rsvpDetails").style.display = 'block';
-          document.getElementById("onePerson").style.display = 'none';
 
-        } else if(rsvpValue == 1) {
-          document.getElementById("rsvpForm").style.display = 'block';
-          document.getElementById("rsvpDetails").style.display = 'block';
-          document.getElementById("onePerson").style.display = 'block';
-          document.getElementById("guestA").innerHTML = name1;
-          document.getElementById("name1").setAttribute('value', name1);
-
-          document.getElementById("guestB").innerHTML = name2;
-          document.getElementById("name2").setAttribute('value', name2);
-        }
-        else {
+        } else {
           document.getElementById("rsvpForm").style.display = 'block';
           document.getElementById("rsvpDetails").style.display = 'none';
         }
       }
 
-      var firebaseRefYes = new Firebase('https://wedding-9b676.firebaseio.com/couples/yes');
-      var firebaseRefNo = new Firebase('https://wedding-9b676.firebaseio.com/couples/no');
+      var firebaseRefYes = new Firebase('https://wedding-9b676.firebaseio.com/individuals/yes');
+      var firebaseRefNo = new Firebase('https://wedding-9b676.firebaseio.com/individuals/no');
       var formField = document.getElementById('rsvpForm');
       let time = moment().format('LLLL');
 
@@ -146,22 +122,10 @@
           rsvpValue = document.querySelector('input[name="response"]:checked').value;
 
           var rsvp = {};
-          if(rsvpValue == 2) {
+          if(rsvpValue == 1) {
             rsvp = {
               time: time,
-              guests: name,
-              quantity: rsvpValue,
-              food: formField.food.value,
-              phone: formField.telephone.value,
-              misc: formField.misc.value,
-            }
-            firebaseRefYes.push(rsvp);
-          } else if(rsvpValue == 1) {
-            var attendingGuest = document.querySelector('input[name="guest"]:checked').value;
-            rsvp = {
-              time: time,
-              guests: name,
-              attendingGuest: attendingGuest,
+              guest: name,
               quantity: rsvpValue,
               food: formField.food.value,
               phone: formField.telephone.value,
@@ -176,7 +140,7 @@
             }
             firebaseRefNo.push(rsvp);
           }
-          // console.log(rsvp)
+          console.log(rsvp)
           var rsvpDiv = document.getElementById("rsvp");
           document.body.removeChild(rsvpDiv);
 
