@@ -145,12 +145,21 @@
       formField.addEventListener("submit", function(event) {
           event.preventDefault();
 
-        $.ajax({
-          type: 'POST',
-          url: $('#rsvpForm').attr('action')
-        })
-
           rsvpValue = document.querySelector('input[name="response"]:checked').value;
+
+          $.ajax({
+            type: 'POST',
+            url: $('#rsvpForm').attr('action'),
+            data: rsvp,
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            } // serializes the form's elements.
+          })
 
           var rsvp = {};
           if(rsvpValue == 2) {
@@ -162,6 +171,7 @@
               phone: formField.telephone.value,
               misc: formField.misc.value,
             }
+
             firebaseRefYes.push(rsvp);
           } else if(rsvpValue == 1) {
             var attendingGuest = document.querySelector('input[name="guest"]:checked').value;
