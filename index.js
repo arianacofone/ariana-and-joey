@@ -64,6 +64,10 @@ app.get('/rsvplease',function(req,res){
   res.sendFile(path.resolve('./views/rsvp-please.html'));
 });
 
+app.get('/dashboard', function(req, res){
+  res.sendFile(path.resolve('./views/dashboard.html'));
+});
+
 app.get('/party-time',function(req,res){
   res.sendFile(path.resolve('./views/party-time.html'));
 });
