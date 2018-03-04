@@ -1,9 +1,13 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 var path = require('path');
 
 var nodemailer = require('nodemailer');
 require('dotenv').config()
+
+app.use(bodyParser.urlencoded({extended:false }));
+app.use(bodyParser.json());
 
 app.use("/views", express.static(__dirname + '/views'));
 app.use("/scripts",express.static(__dirname + '/scripts'));
@@ -15,6 +19,7 @@ app.get('/', function(req,res) {
 })
 
 app.post("/test", function (req, res) {
+
   let transporter = nodemailer.createTransport({
     service: 'gmail',
     secure: false,
@@ -28,20 +33,34 @@ app.post("/test", function (req, res) {
     }
   });
 
+    const emailTemplate = `
+    <div style="font-family: Arial; text-align: center; padding: 5rem;">
+      <img src="https://media.giphy.com/media/xUPGcxpCV81ebKh7Vu/giphy.gif" />
+        <h1 style="font-size:3rem; ">Thanks for the RSVP!</h1>
+        <h4 style="font-size:1rem;">Check out our website for all additional details about the day, travel tips, and registry specifics:</h4>
+        <h2 style="font-size:2rem;">arianaandjoey.com</h2>
+
+        <h3 style="font-size:1rem;">Love,</h3>
+        <h3 style="font-size:1rem;">Ariana and Joey </h3>
+    </div>
+    `;
+
   let HelperOptions = {
     from: 'arianaandjoey@gmail.com',
-    to: 'arianaandjoey@gmail.com',
-    subject: 'You RSVPed to our Wedding!',
-    html: '<h1>Wow, you are awesome!</h1><p>The most awesome</p><p>Yes you are!</p>'
+    to: req.body.email,
+    subject: 'Thanks for RSVPing to our Wedding!',
+    html: emailTemplate
   };
 
   transporter.sendMail(HelperOptions, (error, info) => {
     if (error) {
       return console.log(error);
     }
+    console.log(req.email);
     console.log("The message was sent!");
     console.log(info);
   });
+
 });
 
 app.get('/the-day',function(req,res){

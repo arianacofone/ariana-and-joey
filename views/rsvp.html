@@ -42,7 +42,7 @@
         <p>We'd love for you to come and celebrate with us! Here's a few things you should know:</p>
         <ul id="rsvpNotes">
           <li>Please RSVP by May 1st, 2018</li>
-          <li>We adore your little ones, but this is an adult only affair</li>
+          <li>We adore your little ones, but this is an adult only shindig</li>
           <li>Visit our <a href="/" target="_blank" style="text-decoration: underline">wedding website</a> for all additional details</li>
         </ul>
       </div>
@@ -112,14 +112,16 @@
         var urlAux = url.split('=');
 
         name = decodeURI(urlAux[1]);
-        var names = name.split('&');
-        name1 = names[0].trim();
-        name2 = names[1].trim();
+
+        var nameArray = name.split('&');
+        name1 = nameArray[0].trim();
+        name2 = nameArray[1].trim();
+        var names = '' + name1 + ' & ' + name2 + '';
 
         email = decodeURI(urlAux[2]);
-        document.getElementById('email').value = email;
 
-        document.getElementById("names").innerHTML = name;
+        document.getElementById('email').value = email;
+        document.getElementById("names").innerHTML = names;
 
       });
 
@@ -156,25 +158,11 @@
 
           rsvpValue = document.querySelector('input[name="response"]:checked').value;
 
-          $.ajax({
-            type: 'POST',
-            url: $('#rsvpForm').attr('action'),
-            data: rsvp,
-            success: function (data) {
-                console.log('Submission was successful.');
-                console.log(data);
-            },
-            error: function (data) {
-                console.log('An error occurred.');
-                console.log(data);
-            } // serializes the form's elements.
-          })
-
           var rsvp = {};
           if(rsvpValue == 2) {
             rsvp = {
               time: time,
-              guests: name,
+              guests: names,
               quantity: rsvpValue,
               email: email,
               food: formField.food.value,
@@ -187,7 +175,7 @@
             var attendingGuest = document.querySelector('input[name="guest"]:checked').value;
             rsvp = {
               time: time,
-              guests: name,
+              guests: names,
               email: email,
               attendingGuest: attendingGuest,
               quantity: rsvpValue,
@@ -199,13 +187,32 @@
           } else {
             rsvp = {
               time: time,
-              guests: name,
+              guests: names,
               email: email,
               quantity: rsvpValue
             }
             firebaseRefNo.push(rsvp);
           }
-          console.log(rsvp)
+
+
+          $.ajax({
+            type: 'POST',
+            url: $('#rsvpForm').attr('action'),
+            data: {
+              email: email,
+              names: rsvp.guests
+            },
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            } // serializes the form's elements.
+          })
+
+          // console.log(rsvp)
           var rsvpDiv = document.getElementById("rsvp");
           document.body.removeChild(rsvpDiv);
 
