@@ -6,6 +6,16 @@
     <link rel='shortcut icon' type='image/x-icon' href='./assets/favicon.ico' />
     <link rel="stylesheet" href="../styles/master.css" media="screen" charset="utf-8">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:801710,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
     <style>
       /* The Modal (background) */
       .modal {
@@ -103,7 +113,7 @@
         <p>We'd love for you to come and celebrate with us! Here's a few things you should know:</p>
         <ul id="rsvpNotes">
           <li>Please RSVP by May 1st, 2018</li>
-          <li>Due to restrictions we cannot allow extra guests currently</li>
+          <li>Due to restrictions we can not accomodate plus ones </li>
           <li>We adore your little ones, but this is an adult only shindig</li>
           <li>Visit our <a href="/" target="_blank" style="text-decoration: underline">wedding website</a> for all additional details</li>
         </ul>
@@ -131,7 +141,7 @@
           <br />
 
           <p>Phone Number</p>
-          <input type="tel" pattern="[1-9]{1}[0-9]{9}" placeholder="111-111-1111" name="telephone" value="">
+          <input type="tel" pattern="[1-9]{1}[0-9]{9}" placeholder="111-111-1111" name="telephone" value="" required>
           <br />
 
           <p>Any dietary restrictions?</p>
@@ -159,9 +169,10 @@
       // Handler when the DOM is fully loaded
         var url = window.location + '';
         var urlAux = url.split('=');
-        console.log(urlAux)
-        name = decodeURI(urlAux[1].split('&email'));
-        console.log(name);
+
+        var nameDraft = decodeURI(urlAux[1].split('&email'));
+        name = nameDraft.replace(/[, ]+/g, " ").trim();
+
         email = decodeURI(urlAux[2])
 
         document.getElementById("name").innerHTML = name;

@@ -36,8 +36,8 @@ app.post("/test", function (req, res) {
     const emailTemplate = `
     <div style="font-family: Arial; text-align: center; padding: 5rem;">
       <img src="https://media.giphy.com/media/xUPGcxpCV81ebKh7Vu/giphy.gif" />
-        <h1 style="font-size:3rem; ">Thanks for the RSVP!</h1>
-        <h4 style="font-size:1rem;">Check out our website for all additional details about the day, travel tips, and registry specifics:</h4>
+        <h1 style="font-size:3rem; ">Thanks for RSVPing!</h1>
+        <h4 style="font-size:1rem;">Check out our wedding website for specifics about the day, travel tips, and registry details:</h4>
         <h2 style="font-size:2rem;">arianaandjoey.com</h2>
 
         <h3 style="font-size:1rem;">Love,</h3>
