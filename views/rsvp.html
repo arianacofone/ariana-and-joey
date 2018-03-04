@@ -75,6 +75,10 @@
             </span>
           </div>
 
+          <p>Email</p>
+          <input type="text" id="email" value="">
+          <br />
+
           <p>Phone Number</p>
           <input type="tel" pattern="[1-9]{1}[0-9]{9}" placeholder="111-111-1111" name="telephone">
           <br />
@@ -106,10 +110,15 @@
       // Handler when the DOM is fully loaded
         var url = window.location + '';
         var urlAux = url.split('=');
+
         name = decodeURI(urlAux[1]);
         var names = name.split('&');
         name1 = names[0].trim();
         name2 = names[1].trim();
+
+        email = decodeURI(urlAux[2]);
+        document.getElementById('email').value = email;
+
         document.getElementById("names").innerHTML = name;
 
       });
@@ -167,6 +176,7 @@
               time: time,
               guests: name,
               quantity: rsvpValue,
+              email: email,
               food: formField.food.value,
               phone: formField.telephone.value,
               misc: formField.misc.value,
@@ -178,6 +188,7 @@
             rsvp = {
               time: time,
               guests: name,
+              email: email,
               attendingGuest: attendingGuest,
               quantity: rsvpValue,
               food: formField.food.value,
@@ -189,11 +200,12 @@
             rsvp = {
               time: time,
               guests: name,
+              email: email,
               quantity: rsvpValue
             }
             firebaseRefNo.push(rsvp);
           }
-          // console.log(rsvp)
+          console.log(rsvp)
           var rsvpDiv = document.getElementById("rsvp");
           document.body.removeChild(rsvpDiv);
 
