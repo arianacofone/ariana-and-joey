@@ -6,13 +6,74 @@
     <link rel='shortcut icon' type='image/x-icon' href='./assets/favicon.ico' />
     <link rel="stylesheet" href="../styles/master.css" media="screen" charset="utf-8">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <style>
+      /* The Modal (background) */
+      .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          margin: 0 auto;
+          z-index: 1; /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+          align-items: center;
+          justify-content: center;
+      }
+
+      /* Modal Content */
+      .modal-content {
+          background-color: white;
+          margin: 10% auto;
+          padding: 5%;
+          border: 5px solid black;
+          width: 40%;
+          min-width: 18rem;
+          color: #150F1E;
+          border-color:red;
+          border-radius: 5px;
+          animation-name: rainbow;
+          animation-duration: 5s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          -webkit-animation-name: rainbow;
+          -webkit-animation-duration: 10s;
+          -webkit-animation-timing-function: linear;
+          -webkit-animation-iteration-count: infinite;
+          -moz-animation-name: rainbow;
+          -moz-animation-duration: 10s;
+          -moz-animation-timing-function: linear;
+          -moz-animation-iteration-count: infinite;
+      }
+
+      .rainbow-color {
+        -webkit-animation: rainbow 5s infinite alternate;
+      }
+
+      @-webkit-keyframes rainbow {
+          0% {border-color: hsl(260, 100%, 50%)}
+          100% {border-color: hsl(58, 100%, 50%);}
+      }
+
+      @-moz-keyframes flash_border {
+        0% {border-color: hsl(260, 100%, 50%)}
+        100% {border-color: hsl(58, 100%, 50%);}
+      }
+
+  </style>
   </head>
   <body>
 
-    <div class="center" id="howdy" style="display: none;">
-      <h3 id="title">Thank you for RSVPing! <i class="em em-wink"></i><br />
-        <span id="date">Redirecting you to the main page...</span>
-      </h3>
+    <!-- Modal content -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <h3 style="margin-top: 1rem; text-align:center;font-size: 2rem;">Thank you for RSVPing! <br />
+          <span style="font-weight: light; font-size: 1rem; line-height: 1rem;">Redirecting you to our wedding website. <i class="em em-wink"></i></span>
+        </h3>
+      </div>
     </div>
 
     <div class="mainContent" id="rsvp">
@@ -58,12 +119,16 @@
         <input type="radio" onclick="rsvping(this.value)" name="response" value="0">No, but I'll be celebrating from afar!<br>
       </section>
 
-      <form id="rsvpForm" style="display: none">
+      <form id="rsvpForm" action="/test" method="post" style="display: none">
 
         <div id="rsvpDetails" style="display: none">
           <hr></hr>
           <h2>Hip, hip, hooray!</h2>
           <p style="color: #f1cd8f">Please fill in the details below.</p>
+
+          <p>Email</p>
+          <input type="text" id="email" value="">
+          <br />
 
           <p>Phone Number</p>
           <input type="tel" pattern="[1-9]{1}[0-9]{9}" placeholder="111-111-1111" name="telephone" value="">
@@ -85,6 +150,7 @@
 
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 
       var name = '';
@@ -93,11 +159,13 @@
       // Handler when the DOM is fully loaded
         var url = window.location + '';
         var urlAux = url.split('=');
-        name = decodeURI(urlAux[1]);
-        // var names = name.split('&');
-        // name1 = names[0].trim();
-        // name2 = names[1].trim();
+        console.log(urlAux)
+        name = decodeURI(urlAux[1].split('&email'));
+        console.log(name);
+        email = decodeURI(urlAux[2])
+
         document.getElementById("name").innerHTML = name;
+        document.getElementById('email').value = email;
 
       });
 
@@ -113,8 +181,8 @@
         }
       }
 
-      var firebaseRefYes = new Firebase('https://wedding-9b676.firebaseio.com/individuals/yes');
-      var firebaseRefNo = new Firebase('https://wedding-9b676.firebaseio.com/individuals/no');
+      var firebaseRefYes = new Firebase('https://wedding-5caa4.firebaseio.com/individuals/yes');
+      var firebaseRefNo = new Firebase('https://wedding-5caa4.firebaseio.com/individuals/no');
       var formField = document.getElementById('rsvpForm');
       let time = moment().format('LLLL');
 
@@ -127,6 +195,7 @@
             rsvp = {
               time: time,
               guest: name,
+              email: email,
               quantity: rsvpValue,
               food: formField.food.value,
               phone: formField.telephone.value,
@@ -136,19 +205,32 @@
           } else {
             rsvp = {
               time: time,
-              guests: name,
+              email: email,
+              guest: name,
               quantity: rsvpValue
             }
             firebaseRefNo.push(rsvp);
           }
-          console.log(rsvp)
-          var rsvpDiv = document.getElementById("rsvp");
-          document.body.removeChild(rsvpDiv);
 
-          document.getElementById("howdy").style.display = 'block';
+          $.ajax({
+            type: 'POST',
+            url: $('#rsvpForm').attr('action'),
+            data: {
+              'email': email
+            },
+            success: function (data) {
+                console.log('Submission was successful.');
+                console.log(data);
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            } // serializes the form's elements.
+          })
+
+          document.getElementById("myModal").style.display = 'block';
 
           setTimeout(function () {
-
             window.location.href = "/"; //will redirect to your blog page (an ex: blog.html)
          }, 3000);
       });

@@ -41,7 +41,7 @@ app.post("/test", function (req, res) {
         <h2 style="font-size:2rem;">arianaandjoey.com</h2>
 
         <h3 style="font-size:1rem;">Love,</h3>
-        <h3 style="font-size:1rem;">Ariana and Joey </h3>
+        <h3 style="font-size:1rem;">Us</h3>
     </div>
     `;
 
