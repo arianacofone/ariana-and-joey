@@ -199,8 +199,7 @@
             type: 'POST',
             url: $('#rsvpForm').attr('action'),
             data: {
-              email: email,
-              names: rsvp.guests
+              email: email
             },
             success: function (data) {
                 console.log('Submission was successful.');

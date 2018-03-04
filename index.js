@@ -48,7 +48,7 @@ app.post("/test", function (req, res) {
   let HelperOptions = {
     from: 'arianaandjoey@gmail.com',
     to: req.body.email,
-    subject: 'Thanks for RSVPing to our Wedding!',
+    subject: 'Ariana & Joey Wedding RSVP Confirmation!',
     html: emailTemplate
   };
 
