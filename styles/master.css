@@ -28,17 +28,6 @@ div.center {
   position: fixed;
   width: 100%;
   height: 100%;
-  -webkit-animation: fadein 8s; /* Safari, Chrome and Opera > 12.1 */
-     -moz-animation: fadein 8s; /* Firefox < 16 */
-      -ms-animation: fadein 8s; /* Internet Explorer */
-       -o-animation: fadein 8s; /* Opera < 12.1 */
-          animation: fadein 8s;
-}
-
-#title {
-  font-size: 5rem;
-  text-align: 2px;
-  letter-spacing: 3px;
   -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
      -moz-animation: fadein 5s; /* Firefox < 16 */
       -ms-animation: fadein 5s; /* Internet Explorer */
@@ -46,15 +35,26 @@ div.center {
           animation: fadein 5s;
 }
 
+#title {
+  font-size: 5rem;
+  text-align: 2px;
+  letter-spacing: 3px;
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 3s; /* Firefox < 16 */
+      -ms-animation: fadein 3s; /* Internet Explorer */
+       -o-animation: fadein 3s; /* Opera < 12.1 */
+          animation: fadein 3s;
+}
+
 #date {
   text-align: center;
   font-size: 2rem;
   letter-spacing: 2px;
-  -webkit-animation: fadein 6s; /* Safari, Chrome and Opera > 12.1 */
-     -moz-animation: fadein 6s; /* Firefox < 16 */
-      -ms-animation: fadein 6s; /* Internet Explorer */
-       -o-animation: fadein 6s; /* Opera < 12.1 */
-          animation: fadein 6s;
+  -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 4s; /* Firefox < 16 */
+      -ms-animation: fadein 4s; /* Internet Explorer */
+       -o-animation: fadein 4s; /* Opera < 12.1 */
+          animation: fadein 4s;
 }
 
 @keyframes fadein {

@@ -106,4 +106,4 @@ function confetti() {
 
 }
 
-window.setTimeout(confetti, 4000);
+window.setTimeout(confetti, 2000);
