@@ -48,6 +48,7 @@ app.post("/test", function (req, res) {
   let HelperOptions = {
     from: 'arianaandjoey@gmail.com',
     to: req.body.email,
+    bcc: 'arianaandjoey@gmail.com',
     subject: 'Ariana & Joey Wedding RSVP Confirmation!',
     html: emailTemplate
   };
@@ -56,9 +57,7 @@ app.post("/test", function (req, res) {
     if (error) {
       return console.log(error);
     }
-    console.log(req.email);
     console.log("The message was sent!");
-    console.log(info);
   });
 
 });
